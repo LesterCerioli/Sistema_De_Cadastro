@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="cadastros1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Pessoa_Fisica">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOME" Type="nvarchar" MaxLength="100" />
+          <Property Name="SOBRENOME" Type="nvarchar" MaxLength="100" />
+          <Property Name="CPF" Type="int" />
+          <Property Name="DATA_NASCIMENTO" Type="date" />
+          <Property Name="CEP" Type="int" />
+          <Property Name="LOGRADOURO" Type="varchar" MaxLength="100" />
+          <Property Name="NUMERO" Type="int" />
+          <Property Name="COMPLEMENTO" Type="nvarchar" MaxLength="50" />
+          <Property Name="BAIRRO" Type="nvarchar" MaxLength="50" />
+          <Property Name="CIDADE" Type="nvarchar" MaxLength="100" />
+          <Property Name="ESTADO" Type="nvarchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="pessoa_Juridica">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RAZAO-SOCIAL" Type="nvarchar" MaxLength="100" />
+          <Property Name="NOME-FANTASIA" Type="nvarchar" MaxLength="100" />
+          <Property Name="CNPJ" Type="int" />
+          <Property Name="CEP1" Type="int" />
+          <Property Name="LOGRADOURO" Type="nvarchar" MaxLength="100" />
+          <Property Name="NUMERO" Type="int" />
+          <Property Name="COMPLEMENTO" Type="nvarchar" MaxLength="100" />
+          <Property Name="BAIRRO" Type="nvarchar" MaxLength="100" />
+          <Property Name="CIDADE" Type="nvarchar" MaxLength="100" />
+          <Property Name="ESTADO" Type="nvarchar" MaxLength="2" />
+        </EntityType>
+        <EntityContainer Name="cadastros1ModelStoreContainer">
+          <EntitySet Name="Pessoa_Fisica" EntityType="Self.Pessoa_Fisica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pessoa_Juridica" EntityType="Self.pessoa_Juridica" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cadastros1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Pessoa_Fisica">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SOBRENOME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CPF" Type="Int32" />
+          <Property Name="DATA_NASCIMENTO" Type="DateTime" Precision="0" />
+          <Property Name="CEP" Type="Int32" />
+          <Property Name="LOGRADOURO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NUMERO" Type="Int32" />
+          <Property Name="COMPLEMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BAIRRO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CIDADE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="pessoa_Juridica">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RAZAO_SOCIAL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NOME_FANTASIA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CNPJ" Type="Int32" />
+          <Property Name="CEP1" Type="Int32" />
+          <Property Name="LOGRADOURO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NUMERO" Type="Int32" />
+          <Property Name="COMPLEMENTO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BAIRRO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CIDADE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="cadastros1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Pessoa_Fisica" EntityType="Self.Pessoa_Fisica" />
+          <EntitySet Name="pessoa_Juridica" EntityType="Self.pessoa_Juridica" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="cadastros1ModelStoreContainer" CdmEntityContainer="cadastros1Entities">
+          <EntitySetMapping Name="Pessoa_Fisica">
+            <EntityTypeMapping TypeName="cadastros1Model.Pessoa_Fisica">
+              <MappingFragment StoreEntitySet="Pessoa_Fisica">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="SOBRENOME" ColumnName="SOBRENOME" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="DATA_NASCIMENTO" ColumnName="DATA_NASCIMENTO" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="LOGRADOURO" ColumnName="LOGRADOURO" />
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+                <ScalarProperty Name="COMPLEMENTO" ColumnName="COMPLEMENTO" />
+                <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pessoa_Juridica">
+            <EntityTypeMapping TypeName="cadastros1Model.pessoa_Juridica">
+              <MappingFragment StoreEntitySet="pessoa_Juridica">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RAZAO_SOCIAL" ColumnName="RAZAO-SOCIAL" />
+                <ScalarProperty Name="NOME_FANTASIA" ColumnName="NOME-FANTASIA" />
+                <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+                <ScalarProperty Name="CEP1" ColumnName="CEP1" />
+                <ScalarProperty Name="LOGRADOURO" ColumnName="LOGRADOURO" />
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+                <ScalarProperty Name="COMPLEMENTO" ColumnName="COMPLEMENTO" />
+                <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
